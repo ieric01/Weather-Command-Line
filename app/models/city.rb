@@ -1,9 +1,7 @@
 class City
 
-
   def self.all
     @@cities
-
   end
 
   attr_accessor :forecasts
@@ -18,7 +16,6 @@ class City
   end
 
   def city_check
-        # binding.pry
     if @@cities != []
       @@cities.each do |each_city|
       if each_city.name.include?(self.name)

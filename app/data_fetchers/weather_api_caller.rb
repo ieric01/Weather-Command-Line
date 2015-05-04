@@ -1,4 +1,3 @@
-# require 'rest_client'
 require 'json'
 require 'pry'
 require 'Date'
