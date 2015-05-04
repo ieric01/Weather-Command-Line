@@ -68,18 +68,17 @@ class WeatherCLI
     end
     weatherapi.make_city
     puts "Fetching data..."
-    # sleep(3)
+    sleep(3)
     puts "Thank you for your patience. This is forecast for the next 5 days of :"
     city = weatherapi.load_forecast
-    # sleep(2)
+    sleep(2)
     puts (city.name).bold
     puts (city.country).bold
-    # sleep(1)
+    sleep(1)
     puts "==================="
-    # binding.pry
     city.print_forecast
     puts "--------------------"
-    # sleep(1)
+    sleep(1)
 
     @city = city
     self.user_location = nil

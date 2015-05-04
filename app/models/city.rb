@@ -2,7 +2,6 @@ class City
 
   @@cities = []
 
-
   def self.all
     @@cities
   end
@@ -46,5 +45,6 @@ class City
       puts "    #{each_city.forecasts[0].fahrenheit}"
       puts
     end
+  end
   end
 end
