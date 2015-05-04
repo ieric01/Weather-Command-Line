@@ -9,4 +9,12 @@ class Forecast
     @day_name = day_name
     @city = city
   end
+
+  def print_forecast
+    puts date
+    puts day_name
+    puts description
+    puts fahrenheit
+
+  end
 end

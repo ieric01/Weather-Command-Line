@@ -16,7 +16,7 @@ class WeatherCLI
   end
 
   def run
-    input = STDIN.gets.chomp.strip
+    input = get_user_input #standard in
     if input == "search"
       system "clear"
       enter_command
@@ -39,19 +39,20 @@ class WeatherCLI
   end
 
   def help_method
-    puts "☀︎ Type 'search' to search"
-    puts "☀︎ Type 'history' to see your search history"
-    puts "☀︎ Type 'help' to view this menu again"
-    puts "☀︎ Type 'exit' to exit"
+    Output.print_help_menu
     return run
+  end
+
+  def get_user_input
+    STDIN.gets.chomp.strip
   end
 
   def enter_command
     puts "Enter your city:"
-    user_city = STDIN.gets.chomp.strip
+    user_city = get_user_input
     exit! if user_city == "exit"
     puts "Enter the country name or symbol:"
-    user_country = STDIN.gets.chomp.strip
+    user_country = get_user_input
     exit! if user_country == "exit"
     user_location = "#{user_city}, #{user_country}"
     search(user_location)
@@ -61,21 +62,25 @@ class WeatherCLI
     puts "Your city was " + user_location.bold + ", I am searching..."
     weatherapi = WeatherAPICaller.new(user_location)
     weatherapi.check
-    if weatherapi.error || weatherapi.weather_data["city"]["name"] == ""
+    if weatherapi.error
       puts "Invalid city or country, please type better...".blink
-      STDIN.gets
       return enter_command
     end
     weatherapi.make_city
     puts "Fetching data..."
-    sleep(3)
+    # sleep(3)
     puts "Thank you for your patience. This is forecast for the next 5 days of :"
     city = weatherapi.load_forecast
-    sleep(2)
+    # sleep(2)
     puts (city.name).bold
     puts (city.country).bold
-    sleep(1)
+    # sleep(1)
+    puts "==================="
+    # binding.pry
     city.print_forecast
+    puts "--------------------"
+    # sleep(1)
+
     @city = city
     self.user_location = nil
   end
