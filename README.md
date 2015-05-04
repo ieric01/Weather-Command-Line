@@ -1,9 +1,8 @@
-<<<<<<< HEAD
----
+
 tags: cli, oo, full-application, project, oop
 language: ruby
 resources: 3
----
+
 
 # Project Week 1
 
@@ -112,7 +111,5 @@ This readme is organized into eight sections:
 * [RSpec Docs](https://www.relishapp.com/rspec)
 * [Playlister CLI](https://github.com/flatiron-school-ironboard/playlister-cli-bk-002)
 *
-=======
 # Weather-Command-Line
 Find the weather through your terminal
->>>>>>> a4ca50444e04b75089842b7c57c00ace2ded55cd
