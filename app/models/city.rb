@@ -1,5 +1,10 @@
 class City
 
+<<<<<<< HEAD
+=======
+    @@cities = []
+
+>>>>>>> 44c701be488bbcd5f7138dbb765f3beeb8136b79
   def self.all
     @@cities
   end
@@ -8,7 +13,6 @@ class City
   attr_reader :name, :country
 
   def initialize(name, country)
-    @@cities = []
     @name = name
     @country = country
     @forecasts = []
@@ -16,28 +20,29 @@ class City
   end
 
   def city_check
+<<<<<<< HEAD
     if @@cities != []
       @@cities.each do |each_city|
       if each_city.name.include?(self.name)
         each_city = self
+=======
+      if @@cities != []
+        @@cities.each do |each_city|
+        if each_city.name.include?(self.name)
+          each_city = self
+        else
+          @@cities << self
+          end
+        end
+>>>>>>> 44c701be488bbcd5f7138dbb765f3beeb8136b79
       else
         @@cities << self
-        end
       end
-    else
-      @@cities << self
     end
-  end
 
   def print_forecast
-    puts "==================="
     forecasts.each do |forecast|
-      puts forecast.date
-      puts forecast.day_name
-      puts forecast.description
-      puts forecast.fahrenheit
-      puts "--------------------"
-      sleep(1)
+      forecast.print_forecast
     end
   end
 

@@ -36,7 +36,7 @@ class WeatherAPICaller
       celcius = day["temp"]["day"]
       fahrenheit = (((9.00/5*(celcius))+32).round).to_s+"℉"
       unixnum = day["dt"].to_s
-      day_name = DateTime.strptime(unixnum,"%s").strftime("%A")
+      day_name = DateTime.strptime(unixnum,"%s").strftime("%A") #thursday
       date = DateTime.strptime(unixnum,"%s").to_s[0..9]
       forecast = Forecast.new(fahrenheit, description, date, day_name, self.city)
       self.city.forecasts << forecast

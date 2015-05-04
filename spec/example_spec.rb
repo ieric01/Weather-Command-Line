@@ -1,3 +1,4 @@
+require 'pry'
 describe 'Something' do
 
   # before(:each) usually goes up top, for example:
@@ -17,6 +18,11 @@ describe 'Something' do
   it "I changed this boolean to true when I finished this lab" do
     done = true
     expect(done).to eq(true)
+  end
+  it "Creates a new instance of city" do
+    weatherapi = WeatherAPICaller.new("New York, usa")
+    weatherapi.make_city
+    expect(weatherapi.city.name).to eq("New York")
   end
 
 end
